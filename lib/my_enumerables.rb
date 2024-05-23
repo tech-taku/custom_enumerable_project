@@ -11,6 +11,15 @@ module Enumerable
     self
   end
 
+  # select (filters based on condition)
+  def my_select
+    collection = []
+    my_each do |element|
+      collection << element if yield(element)
+    end
+    collection
+  end
+
   # my_all
   def my_all?
     my_each do |element|
