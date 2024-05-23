@@ -1,5 +1,13 @@
+# module enumerable for custom Enumerable
 module Enumerable
   # Your code goes here
+  # my_all
+  def my_all?
+    my_each do |element|
+      return false unless yield(element)
+    end
+    true
+  end
 end
 
 # You will first have to define my_each
@@ -8,4 +16,10 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each
+    for element in self
+      yield element
+    end
+    self
+  end
 end
