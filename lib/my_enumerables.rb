@@ -47,8 +47,12 @@ module Enumerable
   # my_count (the number of elements that meet a specific condition.)
   def my_count
     count = 0
-    my_each do |element|
-      count += 1 if yield(element)
+    if block_given?
+      my_each do |element|
+        count += 1 if yield(element)
+      end
+    else
+      my_each { count += 1 }
     end
     count
   end
