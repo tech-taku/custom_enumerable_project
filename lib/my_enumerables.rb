@@ -56,6 +56,15 @@ module Enumerable
     end
     count
   end
+
+  # map (returns an array after operating on each and every element)
+  def my_map
+    new_collection = []
+    my_each do |element|
+      new_collection << yield(element)
+    end
+    new_collection
+  end
 end
 
 # You will first have to define my_each
