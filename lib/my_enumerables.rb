@@ -20,6 +20,14 @@ module Enumerable
     collection
   end
 
+  # my_any (if any of the elements meets the condition)
+  def my_any?
+    my_each do |element|
+      return true if yield(element)
+    end
+    false
+  end
+
   # my_all
   def my_all?
     my_each do |element|
