@@ -28,12 +28,29 @@ module Enumerable
     false
   end
 
+  # my_none (return true is none meets the condition otherwise false)
+  def my_none?
+    my_each do |element|
+      return false if yield(element)
+    end
+    true
+  end
+
   # my_all
   def my_all?
     my_each do |element|
       return false unless yield(element)
     end
     true
+  end
+
+  # my_count (the number of elements that meet a specific condition.)
+  def my_count
+    count = 0
+    my_each do |element|
+      count += 1 if yield(element)
+    end
+    count
   end
 end
 
